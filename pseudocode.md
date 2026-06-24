@@ -13,3 +13,10 @@ function getComputerChoice()
 
     return computerChoice
 end
+
+## Step 3: Write the logic to get the human choice
+function getHumanChoice()
+    local humanChoice = prompt("Choose rock, paper, or scissors!", "rock")
+
+    return humanChoice
+end
