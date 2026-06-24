@@ -57,3 +57,19 @@ function playRound(humanChoice, computerChoice)
         }
     }
 end
+
+## Step 6: Write the logic to play the entire game
+function playGame()
+    local humanScore, computerScore = 0
+
+    function playRound(humanSelection, computerSelection) {...}
+
+    for (i = 1, 5) do
+        local humanSelection = getHumanChoice()
+        local computerSelection = getComputerChoice()
+        playRound(humanSelection, computerSelection)
+    end
+
+    return humanScore > computerScore ? "You win!" :
+        humanScore == computerScore ? "It's a tie!" : "You lose!"
+end
