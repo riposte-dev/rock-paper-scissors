@@ -20,3 +20,40 @@ function getHumanChoice()
 
     return humanChoice
 end
+
+## Step 5: Write the logic to play a single round
+function playRound(humanChoice, computerChoice)
+    humanChoice = humanChoice.toLowerCase()
+
+    if (humanChoice == "rock") {
+        if (computerChoice == "rock") {
+            print("Tie! Rock ties with rock!")
+        } elseif (computerChoice == "paper") {
+            print("You lose! Paper beats rock!")
+            computerScore += 1
+        } elseif (computerChoie == "scissors") {
+            print("You win! Rock beats scissors!")
+            humanScore += 1
+        }
+    } elseif (humanChoice == "paper") {
+        if (computerChoice == "rock") {
+            print("You win! Paper beats rock!")
+            humanScore += 1
+        } elseif (computerChoice == "paper") {
+            print("Tie! Paper ties with paper!")
+        } elseif (computerChoie == "scissors") {
+            print("You lose! Scissors beat paper!")
+            computerScore += 1
+        }
+    } elseif (humanChoice == "scissors") {
+        if (computerChoice == "rock") {
+            print("You lose! Rock beats scissors!")
+            computerScore += 1
+        } elseif (computerChoice == "paper") {
+            print("You win! Scissors beat paper!")
+            humanScore += 1
+        } elseif (computerChoie == "scissors") {
+            print("Tie! Scissors tie with scissors!")
+        }
+    }
+end
