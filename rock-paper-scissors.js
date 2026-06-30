@@ -70,4 +70,3 @@ function playGame() {
     (humanScore == computerScore ? "The game is a tie!" : "You lost the game!");
 }
 
-console.log(playGame());
