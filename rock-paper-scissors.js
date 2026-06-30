@@ -2,12 +2,6 @@ let humanScore = 0;
 let computerScore = 0;
 const buttons = document.querySelectorAll("button");
 
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        alert(button.id);
-    })
-});
-
 function getComputerChoice() {
     let computerChoice;
     let randomNumber = Math.random();
@@ -30,8 +24,6 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    humanChoice = humanChoice.toLowerCase();
-
     switch (humanChoice) {
         case "rock":
             if (computerChoice == "rock") {
@@ -81,3 +73,9 @@ function playGame() {
     return humanScore > computerScore ? "You won the game!" :
     (humanScore == computerScore ? "The game is a tie!" : "You lost the game!");
 }
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        playRound(button.id, getComputerChoice());
+    })
+});
