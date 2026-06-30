@@ -17,12 +17,6 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function getHumanChoice() {
-    let humanChoice = prompt("Choose rock, paper, or scissors!");
-
-    return humanChoice;
-}
-
 function playRound(humanChoice, computerChoice) {
     switch (humanChoice) {
         case "rock":
@@ -76,6 +70,9 @@ function playGame() {
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        playRound(button.id, getComputerChoice());
+        humanChoice = button.id;
+        computerChoice = getComputerChoice();
+
+        playRound(humanChoice, computerChoice);
     })
 });
