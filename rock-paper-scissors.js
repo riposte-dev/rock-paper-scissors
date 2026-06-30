@@ -57,15 +57,12 @@ function playRound(humanChoice, computerChoice) {
 
     console.log("Your score: " + humanScore);
     console.log("Computer score: " + computerScore);
-}
 
-function playGame() {
-    for (i = 1; i <= 5; i++) {
-        playRound(getHumanChoice(), getComputerChoice());
+    if (humanScore >= 5) {
+        console.log("You won the game!");
+    } else if (computerScore >= 5) {
+        console.log("You lost the game!");
     }
-
-    return humanScore > computerScore ? "You won the game!" :
-    (humanScore == computerScore ? "The game is a tie!" : "You lost the game!");
 }
 
 buttons.forEach((button) => {
