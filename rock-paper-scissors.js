@@ -1,6 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
 const buttons = document.querySelectorAll("button");
+const message = document.querySelector("p");
 
 function getComputerChoice() {
     let computerChoice;
@@ -55,13 +56,12 @@ function playRound(humanChoice, computerChoice) {
             }
     }
 
-    console.log("Your score: " + humanScore);
-    console.log("Computer score: " + computerScore);
+    message.textContent = `Your score: ${humanScore}\nComputer score: ${computerScore}`;
 
     if (humanScore >= 5) {
-        console.log("You won the game!");
+        message.textContent += "\nYou won the game!";
     } else if (computerScore >= 5) {
-        console.log("You lost the game!");
+        message.textContent += "\nYou lost the game!";
     }
 }
 
