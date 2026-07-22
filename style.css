@@ -3,6 +3,9 @@
 }
 
 body {
+    background-color: #A0CED9;
+    color: #253237; /* Change default text color */
+
     font-family: Arial, Helvetica, sans-serif;
     max-width: 75%;
     margin: auto;
