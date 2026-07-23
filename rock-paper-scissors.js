@@ -27,32 +27,32 @@ function playRound(humanChoice, computerChoice) {
             if (computerChoice == "rock") {
                 message = "Tie!"
             } else if (computerChoice == "paper") {
-                message = "You lose! Paper beats rock."
+                message = "Paper beats rock."
                 computerScore += 1;
             } else if (computerChoice == "scissors") {
-                message = "You win! Rock beats scissors."
+                message = "Rock beats scissors."
                 humanScore += 1;
             }
 
             break;
         case "paper":
             if (computerChoice == "rock") {
-                message = "You win! Paper beats rock."
+                message = "Paper beats rock."
                 humanScore += 1;
             } else if (computerChoice == "paper") {
                 message = "Tie!"
             } else if (computerChoice == "scissors") {
-                message = "You lose! Scissors beat paper."
+                message = "Scissors beat paper."
                 computerScore += 1;
             }
 
             break;
         case "scissors":
             if (computerChoice == "rock") {
-                message = "You lose! Rock beats scissors."
+                message = "Rock beats scissors."
                 computerScore += 1;
             } else if (computerChoice == "paper") {
-                message = "You win! Scissors beat paper."
+                message = "Scissors beat paper."
                 humanScore += 1;
             } else if (computerChoice == "scissors") {
                 message = "Tie!"
