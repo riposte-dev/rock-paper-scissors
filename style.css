@@ -1,6 +1,8 @@
+/*
 * {
     outline: 2px solid red;
 }
+*/
 
 body {
     background-color: #A0CED9;
@@ -24,6 +26,27 @@ main {
 #game-display {
     display: flex;
     justify-content: space-between; /* Place computer and human player on either end */
+
+    img {
+        max-width: 30%;
+    }
+}
+
+#game-input {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+
+    button {
+        background-color: #fcf5c7;
+        aspect-ratio: 1 / 1;
+        max-width: 10%;
+        border-radius: 8px;
+    }
+
+    img {
+        max-width: 100%;
+    }
 }
 
 footer {
@@ -31,8 +54,4 @@ footer {
     background-color: #253237;
     color: #FFFFFF;
     border-radius: 8px;
-}
-
-img {
-    max-width: 100%;
 }
