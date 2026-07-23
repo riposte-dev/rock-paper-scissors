@@ -26,9 +26,14 @@ main {
 #game-display {
     display: flex;
     justify-content: space-between; /* Place computer and human player on either end */
+    align-items: center;
 
     img {
         max-width: 30%;
+    }
+
+    p {
+        min-width: 10%;
     }
 }
 
