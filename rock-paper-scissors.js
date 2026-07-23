@@ -6,6 +6,9 @@ const gameAnnouncement = document.querySelector("#game-announcement");
 const computerScoreDisplay = document.querySelector("#computer-score-display");
 const humanScoreDisplay = document.querySelector("#human-score-display");
 
+const computerChoiceDisplay = document.querySelector("img[alt='Computer choice'");
+const humanChoiceDisplay = document.querySelector("img[alt='Human choice'");
+
 function getComputerChoice() {
     let computerChoice;
     let randomNumber = Math.random();
@@ -24,37 +27,52 @@ function getComputerChoice() {
 function playRound(humanChoice, computerChoice) {
     switch (humanChoice) {
         case "rock":
+            humanChoiceDisplay.src = "attachments/rock.png";
+
             if (computerChoice == "rock") {
+                computerChoiceDisplay.src = "attachments/rock.png";
                 message = "Tie!"
             } else if (computerChoice == "paper") {
+                computerChoiceDisplay.src = "attachments/paper.png";
                 message = "Paper beats rock."
                 computerScore += 1;
             } else if (computerChoice == "scissors") {
+                computerChoiceDisplay.src = "attachments/scissors.png";
                 message = "Rock beats scissors."
                 humanScore += 1;
             }
 
             break;
         case "paper":
+            humanChoiceDisplay.src = "attachments/paper.png";
+
             if (computerChoice == "rock") {
+                computerChoiceDisplay.src = "attachments/rock.png";
                 message = "Paper beats rock."
                 humanScore += 1;
             } else if (computerChoice == "paper") {
+                computerChoiceDisplay.src = "attachments/paper.png";
                 message = "Tie!"
             } else if (computerChoice == "scissors") {
+                computerChoiceDisplay.src = "attachments/scissors.png";
                 message = "Scissors beat paper."
                 computerScore += 1;
             }
 
             break;
         case "scissors":
+            humanChoiceDisplay.src = "attachments/scissors.png";
+
             if (computerChoice == "rock") {
+                computerChoiceDisplay.src = "attachments/rock.png";
                 message = "Rock beats scissors."
                 computerScore += 1;
             } else if (computerChoice == "paper") {
+                computerChoiceDisplay.src = "attachments/paper.png";
                 message = "Scissors beat paper."
                 humanScore += 1;
             } else if (computerChoice == "scissors") {
+                computerChoiceDisplay.src = "attachments/scissors.png";
                 message = "Tie!"
             }
     }
