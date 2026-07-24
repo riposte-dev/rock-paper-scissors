@@ -96,6 +96,9 @@ function newGame() {
     computerScore = 0;
     message = "Ready to play?";
 
+    computerChoiceDisplay.src = "attachments/rock.png";
+    humanChoiceDisplay.src = "attachments/rock.png";
+
     gameAnnouncement.textContent = message;
     computerScoreDisplay.textContent = computerScore;
     humanScoreDisplay.textContent = humanScore;
