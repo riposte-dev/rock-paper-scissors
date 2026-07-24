@@ -5,6 +5,8 @@ const humanScoreDisplay = document.querySelector("#human-score-display");
 const computerChoiceDisplay = document.querySelector("img[alt='Computer choice'");
 const humanChoiceDisplay = document.querySelector("img[alt='Human choice'");
 
+const pointsToWin = 3; /* Minimum points needed to win */
+
 let humanScore = 0;
 let computerScore = 0;
 let message = "";
@@ -82,9 +84,9 @@ function playRound(humanChoice, computerChoice) {
     humanScoreDisplay.textContent = humanScore;
 
     /* Check for winner */
-    if (humanScore == 5) {
+    if (humanScore == pointsToWin) {
         gameAnnouncement.textContent += "\nYou won the game!";
-    } else if (computerScore == 5) {
+    } else if (computerScore == pointsToWin) {
         gameAnnouncement.textContent += "\nYou lost the game!";
     }
 }
@@ -105,11 +107,11 @@ buttons.forEach((button) => {
         computerChoice = getComputerChoice();
 
         /* There exists no winner yet */
-        if (humanScore < 5 && computerScore < 5) {
+        if (humanScore < pointsToWin && computerScore < pointsToWin) {
             playRound(humanChoice, computerChoice);
 
         /* There is a winner */
-        } else if (humanScore == 5 || computerScore == 5) {
+        } else if (humanScore == pointsToWin || computerScore == pointsToWin) {
             newGame();
         }
     })
