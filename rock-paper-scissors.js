@@ -1,13 +1,13 @@
-let humanScore = 0;
-let computerScore = 0;
-let message = "";
 const buttons = document.querySelectorAll("button");
 const gameAnnouncement = document.querySelector("#game-announcement");
 const computerScoreDisplay = document.querySelector("#computer-score-display");
 const humanScoreDisplay = document.querySelector("#human-score-display");
-
 const computerChoiceDisplay = document.querySelector("img[alt='Computer choice'");
 const humanChoiceDisplay = document.querySelector("img[alt='Human choice'");
+
+let humanScore = 0;
+let computerScore = 0;
+let message = "";
 
 function getComputerChoice() {
     let computerChoice;
@@ -81,11 +81,22 @@ function playRound(humanChoice, computerChoice) {
     computerScoreDisplay.textContent = computerScore;
     humanScoreDisplay.textContent = humanScore;
 
-    if (humanScore >= 5) {
+    /* Check for winner */
+    if (humanScore == 5) {
         gameAnnouncement.textContent += "\nYou won the game!";
-    } else if (computerScore >= 5) {
+    } else if (computerScore == 5) {
         gameAnnouncement.textContent += "\nYou lost the game!";
     }
+}
+
+function newGame() {
+    humanScore = 0;
+    computerScore = 0;
+    message = "Ready to play?";
+
+    gameAnnouncement.textContent = message;
+    computerScoreDisplay.textContent = computerScore;
+    humanScoreDisplay.textContent = humanScore;
 }
 
 buttons.forEach((button) => {
@@ -93,6 +104,13 @@ buttons.forEach((button) => {
         humanChoice = button.id;
         computerChoice = getComputerChoice();
 
-        playRound(humanChoice, computerChoice);
+        /* There exists no winner yet */
+        if (humanScore < 5 && computerScore < 5) {
+            playRound(humanChoice, computerChoice);
+
+        /* There is a winner */
+        } else if (humanScore == 5 || computerScore == 5) {
+            newGame();
+        }
     })
 });
