@@ -29,6 +29,10 @@ let humanScore = 0;
 let computerScore = 0;
 let message = "";
 
+function capitalizeFirstLetter(givenString) {
+    return givenString[0].toUpperCase() + givenString.slice(1);
+}
+
 function getComputerChoice() {
     let randomNumber = Math.random();
 
@@ -51,11 +55,11 @@ function playRound(humanChoice, computerChoice) {
     switch (outcome) {
         case "win":
             humanScore += 1;
-            message = `${humanChoice} beats ${computerChoice}.`;
+            message = `${capitalizeFirstLetter(humanChoice)} beats ${computerChoice}.`;
             break;
         case "lose":
             computerScore += 1;
-            message = `${computerChoice} beats ${humanChoice}.`;
+            message = `${capitalizeFirstLetter(computerChoice)} beats ${humanChoice}.`;
             break;
         case "tie":
             message = "Tie!";
