@@ -24,9 +24,8 @@ const OUTCOMES = {
     }
 };
 
-let humanScore = 0;
 let computerScore = 0;
-let message = "";
+let humanScore = 0;
 
 function capitalizeFirstLetter(givenString) {
     return givenString[0].toUpperCase() + givenString.slice(1);
@@ -49,13 +48,12 @@ function getComputerChoice() {
 }
 
 function newGame() {
-    humanScore = 0;
     computerScore = 0;
-    message = "Ready to play?";
+    humanScore = 0;
 
-    gameAnnouncement.textContent = message;
     computerScoreDisplay.textContent = computerScore;
     humanScoreDisplay.textContent = humanScore;
+    gameAnnouncement.textContent = "Ready to play?";
 
     computerChoiceDisplay.src = "attachments/rock.png";
     humanChoiceDisplay.src = "attachments/rock.png";
@@ -67,16 +65,19 @@ function playRound(humanChoice, computerChoice) {
     switch (outcome) {
         case "win":
             humanScore += 1;
-            message = `${capitalizeFirstLetter(humanChoice)} beats ${computerChoice}.`;
+            gameAnnouncement.textContent = `${capitalizeFirstLetter(humanChoice)} beats ${computerChoice}.`;
             break;
         case "lose":
             computerScore += 1;
-            message = `${capitalizeFirstLetter(computerChoice)} beats ${humanChoice}.`;
+            gameAnnouncement.textContent = `${capitalizeFirstLetter(computerChoice)} beats ${humanChoice}.`;
             break;
         case "tie":
-            message = "Tie!";
+            gameAnnouncement.textContent = "Tie!";
             break;
     }
+
+    computerScoreDisplay.textContent = computerScore;
+    humanScoreDisplay.textContent = humanScore;
 
     /* Update hand image of player 'human' */
     switch (humanChoice) {
@@ -103,10 +104,6 @@ function playRound(humanChoice, computerChoice) {
             computerChoiceDisplay.src = "attachments/scissors.png";
             break;
     }
-
-    gameAnnouncement.textContent = message;
-    computerScoreDisplay.textContent = computerScore;
-    humanScoreDisplay.textContent = humanScore;
 }
 
 buttons.forEach((button) => {
