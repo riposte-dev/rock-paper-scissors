@@ -66,6 +66,7 @@ function playRound(humanChoice, computerChoice) {
             break;
     }
 
+    /* Update hand image of player 'human' */
     switch (humanChoice) {
         case "rock":
             humanChoiceDisplay.src = "attachments/rock.png";
@@ -78,6 +79,7 @@ function playRound(humanChoice, computerChoice) {
             break;
     }
 
+    /* Update hand image of player 'computer' */
     switch (computerChoice) {
         case "rock":
             computerChoiceDisplay.src = "attachments/rock.png";
