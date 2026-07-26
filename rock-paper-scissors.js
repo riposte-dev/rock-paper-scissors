@@ -12,18 +12,15 @@ let computerScore = 0;
 let message = "";
 
 function getComputerChoice() {
-    let computerChoice;
     let randomNumber = Math.random();
 
     if (randomNumber <= 0.33) {
-        computerChoice = "rock";
+        return "rock";
     } else if (randomNumber <= 0.66) {
-        computerChoice = "paper";
+        return "paper";
     } else if (randomNumber <= 1) {
-        computerChoice = "scissors";
+        return "scissors";
     }
-
-    return computerChoice;
 }
 
 function playRound(humanChoice, computerChoice) {
