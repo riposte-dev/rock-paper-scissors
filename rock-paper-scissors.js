@@ -1,5 +1,3 @@
-const POINTS_TO_WIN = 3; /* Minimum points needed to win */
-
 const buttons = document.querySelectorAll("button");
 const gameAnnouncement = document.querySelector("#game-announcement");
 const computerScoreDisplay = document.querySelector("#computer-score-display");
@@ -7,7 +5,8 @@ const humanScoreDisplay = document.querySelector("#human-score-display");
 const computerChoiceDisplay = document.querySelector("img[alt='Computer choice'");
 const humanChoiceDisplay = document.querySelector("img[alt='Human choice'");
 
-const outcomes = {
+const POINTS_TO_WIN = 3; /* Minimum points needed to win */
+const OUTCOMES = {
     "rock": {
         "rock": "tie",
         "paper": "lose",
@@ -33,6 +32,10 @@ function capitalizeFirstLetter(givenString) {
     return givenString[0].toUpperCase() + givenString.slice(1);
 }
 
+function evaluateOutcome(humanChoice, computerChoice) {
+    return OUTCOMES[humanChoice][computerChoice];
+}
+
 function getComputerChoice() {
     let randomNumber = Math.random();
 
@@ -45,8 +48,17 @@ function getComputerChoice() {
     }
 }
 
-function evaluateOutcome(humanChoice, computerChoice) {
-    return outcomes[humanChoice][computerChoice];
+function newGame() {
+    humanScore = 0;
+    computerScore = 0;
+    message = "Ready to play?";
+
+    gameAnnouncement.textContent = message;
+    computerScoreDisplay.textContent = computerScore;
+    humanScoreDisplay.textContent = humanScore;
+
+    computerChoiceDisplay.src = "attachments/rock.png";
+    humanChoiceDisplay.src = "attachments/rock.png";
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -91,20 +103,6 @@ function playRound(humanChoice, computerChoice) {
             computerChoiceDisplay.src = "attachments/scissors.png";
             break;
     }
-
-    gameAnnouncement.textContent = message;
-    computerScoreDisplay.textContent = computerScore;
-    humanScoreDisplay.textContent = humanScore;
-
-}
-
-function newGame() {
-    humanScore = 0;
-    computerScore = 0;
-    message = "Ready to play?";
-
-    computerChoiceDisplay.src = "attachments/rock.png";
-    humanChoiceDisplay.src = "attachments/rock.png";
 
     gameAnnouncement.textContent = message;
     computerScoreDisplay.textContent = computerScore;
