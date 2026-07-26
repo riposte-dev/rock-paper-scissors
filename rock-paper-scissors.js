@@ -96,12 +96,6 @@ function playRound(humanChoice, computerChoice) {
     computerScoreDisplay.textContent = computerScore;
     humanScoreDisplay.textContent = humanScore;
 
-    /* Check for winner */
-    if (humanScore == POINTS_TO_WIN) {
-        gameAnnouncement.textContent += "\nYou won the game!";
-    } else if (computerScore == POINTS_TO_WIN) {
-        gameAnnouncement.textContent += "\nYou lost the game!";
-    }
 }
 
 function newGame() {
@@ -122,11 +116,17 @@ buttons.forEach((button) => {
         humanChoice = button.id;
         computerChoice = getComputerChoice();
 
-        /* There exists no winner yet */
+        /* Check that there exists no winner yet */
         if (humanScore < POINTS_TO_WIN && computerScore < POINTS_TO_WIN) {
             playRound(humanChoice, computerChoice);
 
-        /* There is a winner */
+            /* After playing, check the newest round for a winner */
+            if (humanScore == POINTS_TO_WIN) {
+                gameAnnouncement.textContent += "\nYou won the game!";
+            } else if (computerScore == POINTS_TO_WIN) {
+                gameAnnouncement.textContent += "\nYou lost the game!";
+            }
+        /* Check that there is a winner */
         } else if (humanScore == POINTS_TO_WIN || computerScore == POINTS_TO_WIN) {
             newGame();
         }
