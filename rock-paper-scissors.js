@@ -35,6 +35,20 @@ function evaluateOutcome(humanChoice, computerChoice) {
     return OUTCOMES[humanChoice][computerChoice];
 }
 
+function setPlayerHandImage(playerHandDisplay, playerChoice) {
+    switch (playerChoice) {
+        case "rock":
+            playerHandDisplay.src = "attachments/rock.png";
+            break;
+        case "paper":
+            playerHandDisplay.src = "attachments/paper.png";
+            break;
+        case "scissors":
+            playerHandDisplay.src = "attachments/scissors.png";
+            break;
+    }
+}
+
 function getComputerChoice() {
     let randomNumber = Math.random();
 
@@ -55,8 +69,8 @@ function newGame() {
     humanScoreDisplay.textContent = humanScore;
     gameAnnouncement.textContent = "Ready to play?";
 
-    computerChoiceDisplay.src = "attachments/rock.png";
-    humanChoiceDisplay.src = "attachments/rock.png";
+    setPlayerHandImage(computerChoiceDisplay, "rock");
+    setPlayerHandImage(humanScoreDisplay, "rock");
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -79,31 +93,8 @@ function playRound(humanChoice, computerChoice) {
     computerScoreDisplay.textContent = computerScore;
     humanScoreDisplay.textContent = humanScore;
 
-    /* Update hand image of player 'human' */
-    switch (humanChoice) {
-        case "rock":
-            humanChoiceDisplay.src = "attachments/rock.png";
-            break;
-        case "paper":
-            humanChoiceDisplay.src = "attachments/paper.png";
-            break;
-        case "scissors":
-            humanChoiceDisplay.src = "attachments/scissors.png";
-            break;
-    }
-
-    /* Update hand image of player 'computer' */
-    switch (computerChoice) {
-        case "rock":
-            computerChoiceDisplay.src = "attachments/rock.png";
-            break;
-        case "paper":
-            computerChoiceDisplay.src = "attachments/paper.png";
-            break;
-        case "scissors":
-            computerChoiceDisplay.src = "attachments/scissors.png";
-            break;
-    }
+    setPlayerHandImage(computerChoiceDisplay, computerChoice);
+    setPlayerHandImage(humanChoiceDisplay, humanChoice);
 }
 
 buttons.forEach((button) => {
