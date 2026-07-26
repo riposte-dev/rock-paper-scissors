@@ -7,6 +7,24 @@ const humanScoreDisplay = document.querySelector("#human-score-display");
 const computerChoiceDisplay = document.querySelector("img[alt='Computer choice'");
 const humanChoiceDisplay = document.querySelector("img[alt='Human choice'");
 
+const outcomes = {
+    "rock": {
+        "rock": "tie",
+        "paper": "lose",
+        "scissors": "win"
+    },
+    "paper": {
+        "rock": "win",
+        "paper": "tie",
+        "scissors": "lose"
+    },
+    "scissors": {
+        "rock": "lose",
+        "paper": "win",
+        "scissors": "tie"
+    }
+};
+
 let humanScore = 0;
 let computerScore = 0;
 let message = "";
@@ -23,22 +41,37 @@ function getComputerChoice() {
     }
 }
 
+function evaluateOutcome(humanChoice, computerChoice) {
+    return outcomes[humanChoice][computerChoice];
+}
+
 function playRound(humanChoice, computerChoice) {
+    let outcome = evaluateOutcome(humanChoice, computerChoice);
+
+    switch (outcome) {
+        case "win":
+            humanScore += 1;
+            message = `${humanChoice} beats ${computerChoice}.`;
+            break;
+        case "lose":
+            computerScore += 1;
+            message = `${computerChoice} beats ${humanChoice}.`;
+            break;
+        case "tie":
+            message = "Tie!";
+            break;
+    }
+
     switch (humanChoice) {
         case "rock":
             humanChoiceDisplay.src = "attachments/rock.png";
 
             if (computerChoice == "rock") {
                 computerChoiceDisplay.src = "attachments/rock.png";
-                message = "Tie!"
             } else if (computerChoice == "paper") {
                 computerChoiceDisplay.src = "attachments/paper.png";
-                message = "Paper beats rock."
-                computerScore += 1;
             } else if (computerChoice == "scissors") {
                 computerChoiceDisplay.src = "attachments/scissors.png";
-                message = "Rock beats scissors."
-                humanScore += 1;
             }
 
             break;
@@ -47,15 +80,10 @@ function playRound(humanChoice, computerChoice) {
 
             if (computerChoice == "rock") {
                 computerChoiceDisplay.src = "attachments/rock.png";
-                message = "Paper beats rock."
-                humanScore += 1;
             } else if (computerChoice == "paper") {
                 computerChoiceDisplay.src = "attachments/paper.png";
-                message = "Tie!"
             } else if (computerChoice == "scissors") {
                 computerChoiceDisplay.src = "attachments/scissors.png";
-                message = "Scissors beat paper."
-                computerScore += 1;
             }
 
             break;
@@ -64,15 +92,10 @@ function playRound(humanChoice, computerChoice) {
 
             if (computerChoice == "rock") {
                 computerChoiceDisplay.src = "attachments/rock.png";
-                message = "Rock beats scissors."
-                computerScore += 1;
             } else if (computerChoice == "paper") {
                 computerChoiceDisplay.src = "attachments/paper.png";
-                message = "Scissors beat paper."
-                humanScore += 1;
             } else if (computerChoice == "scissors") {
                 computerChoiceDisplay.src = "attachments/scissors.png";
-                message = "Tie!"
             }
     }
 
