@@ -69,38 +69,25 @@ function playRound(humanChoice, computerChoice) {
     switch (humanChoice) {
         case "rock":
             humanChoiceDisplay.src = "attachments/rock.png";
-
-            if (computerChoice == "rock") {
-                computerChoiceDisplay.src = "attachments/rock.png";
-            } else if (computerChoice == "paper") {
-                computerChoiceDisplay.src = "attachments/paper.png";
-            } else if (computerChoice == "scissors") {
-                computerChoiceDisplay.src = "attachments/scissors.png";
-            }
-
             break;
         case "paper":
             humanChoiceDisplay.src = "attachments/paper.png";
-
-            if (computerChoice == "rock") {
-                computerChoiceDisplay.src = "attachments/rock.png";
-            } else if (computerChoice == "paper") {
-                computerChoiceDisplay.src = "attachments/paper.png";
-            } else if (computerChoice == "scissors") {
-                computerChoiceDisplay.src = "attachments/scissors.png";
-            }
-
             break;
         case "scissors":
             humanChoiceDisplay.src = "attachments/scissors.png";
+            break;
+    }
 
-            if (computerChoice == "rock") {
-                computerChoiceDisplay.src = "attachments/rock.png";
-            } else if (computerChoice == "paper") {
-                computerChoiceDisplay.src = "attachments/paper.png";
-            } else if (computerChoice == "scissors") {
-                computerChoiceDisplay.src = "attachments/scissors.png";
-            }
+    switch (computerChoice) {
+        case "rock":
+            computerChoiceDisplay.src = "attachments/rock.png";
+            break;
+        case "paper":
+            computerChoiceDisplay.src = "attachments/paper.png";
+            break;
+        case "scissors":
+            computerChoiceDisplay.src = "attachments/scissors.png";
+            break;
     }
 
     gameAnnouncement.textContent = message;
