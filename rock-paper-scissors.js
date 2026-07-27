@@ -7,6 +7,7 @@ const humanChoiceDisplay = document.querySelector("img[alt='Human choice'");
 
 const audioWin = new Audio("attachments/win.wav");
 const audioLose = new Audio("attachments/lose.wav");
+const audioNewGame = new Audio("attachments/newGame.wav");
 
 const POINTS_TO_WIN = 3; /* Minimum points needed to win */
 const OUTCOMES = {
@@ -74,6 +75,8 @@ function newGame() {
 
     setPlayerHandImage(computerChoiceDisplay, "rock");
     setPlayerHandImage(humanScoreDisplay, "rock");
+
+    audioNewGame.play();
 }
 
 function playRound(humanChoice, computerChoice) {
