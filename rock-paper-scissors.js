@@ -5,6 +5,8 @@ const humanScoreDisplay = document.querySelector("#human-score-display");
 const computerChoiceDisplay = document.querySelector("img[alt='Computer choice'");
 const humanChoiceDisplay = document.querySelector("img[alt='Human choice'");
 
+const audioWin = new Audio("attachments/win.wav");
+
 const POINTS_TO_WIN = 3; /* Minimum points needed to win */
 const OUTCOMES = {
     "rock": {
@@ -109,6 +111,7 @@ buttons.forEach((button) => {
             /* After playing, check the newest round for a winner */
             if (humanScore == POINTS_TO_WIN) {
                 gameAnnouncement.textContent += "\nYou won the game!";
+                audioWin.play();
             } else if (computerScore == POINTS_TO_WIN) {
                 gameAnnouncement.textContent += "\nYou lost the game!";
             }
