@@ -6,6 +6,7 @@ const computerChoiceDisplay = document.querySelector("img[alt='Computer choice'"
 const humanChoiceDisplay = document.querySelector("img[alt='Human choice'");
 
 const audioWin = new Audio("attachments/win.wav");
+const audioLose = new Audio("attachments/lose.wav");
 
 const POINTS_TO_WIN = 3; /* Minimum points needed to win */
 const OUTCOMES = {
@@ -114,6 +115,7 @@ buttons.forEach((button) => {
                 audioWin.play();
             } else if (computerScore == POINTS_TO_WIN) {
                 gameAnnouncement.textContent += "\nYou lost the game!";
+                audioLose.play();
             }
         /* Check that there is a winner */
         } else if (humanScore == POINTS_TO_WIN || computerScore == POINTS_TO_WIN) {
