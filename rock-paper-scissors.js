@@ -5,6 +5,7 @@ const humanScoreDisplay = document.querySelector("#human-score-display");
 const computerChoiceDisplay = document.querySelector("img[alt='Computer choice'");
 const humanChoiceDisplay = document.querySelector("img[alt='Human choice'");
 
+const audioClick = new Audio("attachments/buttonClick.wav");
 const audioWin = new Audio("attachments/win.wav");
 const audioLose = new Audio("attachments/lose.wav");
 const audioNewGame = new Audio("attachments/newGame.wav");
@@ -105,6 +106,8 @@ function playRound(humanChoice, computerChoice) {
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
+        audioClick.play();
+
         humanChoice = button.id;
         computerChoice = getComputerChoice();
 
