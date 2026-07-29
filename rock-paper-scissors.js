@@ -40,6 +40,11 @@ function evaluateOutcome(humanChoice, computerChoice) {
     return OUTCOMES[humanChoice][computerChoice];
 }
 
+function playAudio(audio) {
+    audio.currentTime = 0;
+    audio.play();
+}
+
 function setPlayerHandImage(playerHandDisplay, playerChoice) {
     switch (playerChoice) {
         case "rock":
@@ -77,7 +82,7 @@ function newGame() {
     setPlayerHandImage(computerChoiceDisplay, "rock");
     setPlayerHandImage(humanScoreDisplay, "rock");
 
-    audioNewGame.play();
+    playAudio(audioNewGame);
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -106,7 +111,7 @@ function playRound(humanChoice, computerChoice) {
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
-        audioClick.play();
+        playAudio(audioClick);
 
         humanChoice = button.id;
         computerChoice = getComputerChoice();
@@ -118,10 +123,10 @@ buttons.forEach((button) => {
             /* After playing, check the newest round for a winner */
             if (humanScore == POINTS_TO_WIN) {
                 gameAnnouncement.textContent += "\nYou won the game!";
-                audioWin.play();
+                playAudio(audioWin);
             } else if (computerScore == POINTS_TO_WIN) {
                 gameAnnouncement.textContent += "\nYou lost the game!";
-                audioLose.play();
+                playAudio(audioLose);
             }
         /* Check that there is a winner */
         } else if (humanScore == POINTS_TO_WIN || computerScore == POINTS_TO_WIN) {
