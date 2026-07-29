@@ -80,7 +80,7 @@ function newGame() {
     gameAnnouncement.textContent = "Ready to play?";
 
     setPlayerHandImage(computerChoiceDisplay, "rock");
-    setPlayerHandImage(humanScoreDisplay, "rock");
+    setPlayerHandImage(humanChoiceDisplay, "rock");
 
     playAudio(audioNewGame);
 }
